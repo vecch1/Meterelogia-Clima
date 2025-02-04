@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>weather meteorology</title>
+    <title>Clima app</title>
+    <link  href="https://pro.fontawesome.com/releases/v6.0.0-beta3/css/all.css" rel="stylesheet">
+    <link  href="https://unpkg.com/boxicons@2.1.2/css/boxiscons.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <h2>Clima</h2>
+            <div class="clima-input">
+                <input type="text" name="cidade" id="cidade_input" placeholder="Pesquise uma cidade">
+                <button type="button" id="pesquisarBtn">
+                    <i class="fa-regular fa-search"></i>Search
+                </button>
+                <button type="button" id="localizaçãoBtn">
+                    <i class="fa-solid fa-location-crosshairs"></i>Localização atual
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
