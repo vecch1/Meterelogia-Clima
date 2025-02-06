@@ -180,3 +180,121 @@ hr{margin-bottom: 10px;}
         }
     }
 }
+
+@media(max-width:1100px){
+    .clima-data{
+        grid-template-columns: repeat(3,1fr);
+        &.clima-direita{
+            grid-column: span 2;
+            & .destaques{
+                grid-template-columns: repeat(3,1);
+                &.card:nth-of-type(1){
+                    grid-column: span 3;
+                }
+            }
+            & .hourly-forecast{
+                grid-template-columns: repeat(6,1fr);
+            }
+        }
+    }
+}
+
+@media(max-width:1040px){
+    .clima-data{
+        grid-template-columns: repeat(2,1);
+        & .clima-data{
+            grid-column: span 1;
+            & destaques{
+                grid-template-columns: repeat(2,1fr);
+                & .card:nth-last-of-type(1){
+                    grid-column: span 2;
+                }
+            }
+            & .hourly-forecast{
+                grid-template-columns: repeat(4,fr);
+            }
+        }
+    }
+}
+
+@media(max-width: 952px){
+    .clima-data .clima-direita .destaques {
+        & .card{
+            grid-column: span 2;
+        }
+        & .air-indices{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+}
+
+@media(max-width:850px){
+    .clima-data{
+        grid-template-columns: 1fr;
+        & .clima-direita .destaques{
+            & .card:nth-of-type(3)
+            & .card:nth-of-type(4)
+            & .card:nth-of-type(5)
+            & .card:nth-of-type(6)
+            & .card:nth-of-type(7){
+                grid-column: span 1;
+            }
+            & .air-indices{
+                grid-template-columns: repeat(5,1fr);
+            }
+        }
+    }
+}
+
+@media(max-width:660px){
+    .header{
+        flex-direction: column;
+        & h2{
+            margin-bottom: 8px;
+        }
+        & #cidade_input, #pesquisarBtn , #localizaçãoBtn{
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media(max-width:500px){
+    .clima-data .clima-direita .destaques .air-indices{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+@media(max-width:520px){
+    .clima-data .clima-direita .destaques{
+        & .card:nth-of-type(3),
+        & .card:nth-of-type(4),
+        & .card:nth-of-type(5),
+        & .card:nth-of-type(6),
+        & .card:nth-of-type(7){
+            grid-column: span 2;
+        }
+        & .air-indices{
+            grid-template-columns: repeat(3,1fr);
+        }
+    }
+}
+
+@media(max-width:400px){
+    .clima-direita .clima-data .destaques .sunrise-sunset{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:450px){
+    .clima-data .clima-direita  .hourly-forecast{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media(max-width:300px){
+    .clima-data .clima-direita .destaques .air-indices{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
