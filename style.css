@@ -1,300 +1,150 @@
-:root{
-    --bg-color1: #212529;
-    --bg-color2: #2a2b2d;
-    --aqi-1: #d4e157;
-    --aqi-2: #ffee58;
-    --aqi-3: #ffca28;
-    --aqi-4: #ff7043;
-    --aqi-5: #ef5350;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 
-*{
+* {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0 ;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    min-height: 100vh;
-    background-color: var(--bg-color1);
-    color: #fff;
-    font-family:sans-serif;
-    padding: 0 15px ;
-}
-
-hr{margin-bottom: 10px;}
-
-.header {
-    position: sticky;
-    top: 0;
-    background-color: var(--bg-color1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
-    padding: 15px 0;
-
-    & #cidade_input{
-        background-color: var(--bg-color2);
-        border: none;
-        padding: 12px;
-        font-size: 16px;
-        border-radius: 25px;
-        color: #fff;
-        &:focus{
-            outline: none;
-        }
-    }
-    & #pesquisarBtn{
-        border: none;
-        font-size: 16px;
-        padding: 12px;
-        border-radius: 25px;
-        background-color: #fff;
-        cursor: pointer;
-    }
-    & #localizaçãoBtn{
-        border: none;
-        font-size: 16px;
-        padding: 12px;
-        border-radius: 25px;
-        background-color: #3554dd;
-        cursor: pointer;
-    }
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#181b1d, #1b1c1d);
 }
 
-.card{
-    background-color: var(--bg-color2);
-    padding: 15px;    
-    border-radius: 15px;
-    margin-bottom: 15px;
-    & p{
-        font-size: 14px;
-        color: #999;
-    }
-    & h2{
-        font-size: 32px;
-        font-weight: 500;
-    }
+#container {
+    background-color: #e0e6eb;
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
-.clima-data{
+#search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    padding: 4px 12px;
+}
+
+#search input {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    width: 100%;
+}
+
+#search input:focus-visible {
+    outline: none;
+}
+
+#search button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#weather {
+    display: none;
+    margin-top: 20px;   
+}
+
+#weather.show {
+    display: block;
+}
+
+#weather #title {
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #372f3f;
+}
+
+#temp {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    background: linear-gradient(90deg, #62eb69, #54d490);
+    color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#temp_img {
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
+}
+
+#temp_value {
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 55px;
+}
+
+#temp_description {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+#other_infos {
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    & clima-esquerda{
-        grid-column: span 1;
-        & .atual-clima{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            & h2{
-                margin: 7px 0;
-            }
-            & p{
-                color: #fff;
-            }
-        }
-        & .card-footer p{
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-        & .previsao-item{
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            place-items: center;
-            margin-bottom: 15px;
-            & .icon-wrapper{
-                display: flex;
-                align-items: center;               
-            }   
-        }
-    }
-    & .clima-direita{
-        grid-column: span 3;
-        & h2{
-            margin-bottom: 10px;
-        }
-        & .destaques{
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            column-gap: 15px;
-            & .card:nth-of-type(1),
-            & .card:nth-of-type(2){
-                grid-column: span 2;
-            }
-            & .card-head{
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 10px;
-                & .air-index{
-                    color: #000;
-                    padding: 5px 10px;
-                    border-radius: 15px;
-                    &.aqi-2{
-                        background-color: var(--aqi-2);
-                    }
-                    &.aqi-3{
-                        background-color: var(--aqi-3);
-                    }
-                    &.aqi-4{
-                        background-color: var(--aqi-4);
-                    }
-                    &.aqi-5{
-                        background-color: var(--aqi-5);
-                    }
-                }
-            }
-            & .air-indices{
-                display: grid;
-                grid-template-columns: repeat(4,1fr);
-                place-items: center;
-                & p{
-                    text-align: center;
-                }
-            }
-            & .sunrise-sunset{
-                display: grid;
-                grid-template-columns: repeat(2,1fr);
-                & .item{
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    & h2 {
-                        margin-top: 15px;
-                    }
-                }
-            }
-            & .card-item{
-                display: flex;
-                justify-content: space-between;
-            }
-        }
-        & .hourly-forecast{
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            column-gap: 10px;
-            & .card{
-                text-align: center;
-            }
-        }
-    }
+    
+    
 }
 
-@media(max-width:1100px){
-    .clima-data{
-        grid-template-columns: repeat(3,1fr);
-        &.clima-direita{
-            grid-column: span 2;
-            & .destaques{
-                grid-template-columns: repeat(3,1);
-                &.card:nth-of-type(1){
-                    grid-column: span 3;
-                }
-            }
-            & .hourly-forecast{
-                grid-template-columns: repeat(6,1fr);
-            }
-        }
-    }
+#other_infos .info {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 4px 10px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    gap: 10px;
+    
 }
 
-@media(max-width:1040px){
-    .clima-data{
-        grid-template-columns: repeat(2,1);
-        & .clima-data{
-            grid-column: span 1;
-            & destaques{
-                grid-template-columns: repeat(2,1fr);
-                & .card:nth-last-of-type(1){
-                    grid-column: span 2;
-                }
-            }
-            & .hourly-forecast{
-                grid-template-columns: repeat(4,fr);
-            }
-        }
-    }
+#other_infos .info h2 {
+    font-size: 12px;
+    font-weight: 600;
 }
 
-@media(max-width: 952px){
-    .clima-data .clima-direita .destaques {
-        & .card{
-            grid-column: span 2;
-        }
-        & .air-indices{
-            grid-template-columns: repeat(3,1fr);
-        }
-    }
+#other_infos .info i {
+    text-align: center;
+    font-size: 20px;
+    width: 20%;
 }
 
-@media(max-width:850px){
-    .clima-data{
-        grid-template-columns: 1fr;
-        & .clima-direita .destaques{
-            & .card:nth-of-type(3)
-            & .card:nth-of-type(4)
-            & .card:nth-of-type(5)
-            & .card:nth-of-type(6)
-            & .card:nth-of-type(7){
-                grid-column: span 1;
-            }
-            & .air-indices{
-                grid-template-columns: repeat(5,1fr);
-            }
-        }
-    }
+#temp_max_icon {
+    color: #7f1d1d;
 }
 
-@media(max-width:660px){
-    .header{
-        flex-direction: column;
-        & h2{
-            margin-bottom: 8px;
-        }
-        & #cidade_input, #pesquisarBtn , #localizaçãoBtn{
-            width: 100%;
-            margin-bottom: 10px;
-        }
-    }
+#temp_min_icon {
+    color: #0284c7;
 }
 
-@media(max-width:500px){
-    .clima-data .clima-direita .destaques .air-indices{
-        grid-template-columns: repeat(4,1fr);
-    }
+#humidity_icon {
+    color: #0ea5e9;
 }
 
-@media(max-width:520px){
-    .clima-data .clima-direita .destaques{
-        & .card:nth-of-type(3),
-        & .card:nth-of-type(4),
-        & .card:nth-of-type(5),
-        & .card:nth-of-type(6),
-        & .card:nth-of-type(7){
-            grid-column: span 2;
-        }
-        & .air-indices{
-            grid-template-columns: repeat(3,1fr);
-        }
-    }
+#wind_icon {
+    color: #7c3aed;
 }
 
-@media(max-width:400px){
-    .clima-direita .clima-data .destaques .sunrise-sunset{
-        grid-template-columns: 1fr;
-    }
+#alert {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@media(max-width:450px){
-    .clima-data .clima-direita  .hourly-forecast{
-        grid-template-columns: repeat(3,1fr);
-    }
+#alert img {
+    width: 200px;
+    margin-top: 20px;
 }
-
-@media(max-width:300px){
-    .clima-data .clima-direita .destaques .air-indices{
-        grid-template-columns: repeat(2,1fr);
-    }
-}
-
