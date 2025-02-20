@@ -1,4 +1,4 @@
-Este projeto web permite visualizar as condições climáticas em tempo real de qualquer cidade do mundo, utilizando a API do OpenWeatherMap. Ele oferece uma interface simples e intuitiva para buscar cidades e exibir informações detalhadas sobre o clima.
+Este projeto web permite visualizar as condições climáticas em tempo real de qualquer cidade do mundo, utilizando a API do OpenWeatherMap. Ele oferece uma interface simples e a para buscar cidades do mundo inteiro  e exibir informações detalhadas sobre o clima.
 
 ## Funcionalidades
 
